@@ -1,5 +1,5 @@
 import { createReducer, createActions } from 'reduxsauce'
-import Immutable from 'seamless-immutable'
+import Immutable from 'immutable'
 
 /* ------------- Types and Action Creators ------------- */
 
@@ -14,7 +14,7 @@ export default Creators
 
 /* ------------- Initial State ------------- */
 
-export const INITIAL_STATE = Immutable({
+export const INITIAL_STATE = Immutable.fromJS({
   data: null,
   fetching: null,
   payload: null,
@@ -24,7 +24,7 @@ export const INITIAL_STATE = Immutable({
 /* ------------- Selectors ------------- */
 
 export const <%= props.name %>Selectors = {
-  getData: state => state.data
+  getData: state => state.data.toJS()
 }
 
 /* ------------- Reducers ------------- */
